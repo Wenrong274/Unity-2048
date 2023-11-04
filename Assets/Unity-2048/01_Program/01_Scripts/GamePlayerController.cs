@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace hyhy
+namespace hyhy.game
 {
     public enum PlayerInput
     {
@@ -13,7 +13,6 @@ namespace hyhy
     {
         [SerializeField] private InputActionAsset gameCtrl;
         [SerializeField] private Text t;
-        [SerializeField] private GameData GameData;
         private void Awake()
         {
             gameCtrl.FindActionMap("game").FindAction("up").performed += (o) => OnPressUp(o, PlayerInput.Up);
@@ -26,7 +25,6 @@ namespace hyhy
         {
             t.text = playerInput.ToString();
             Debug.Log(playerInput.ToString());
-            GameData.SetPlayerInput(playerInput);
         }
     }
 }
